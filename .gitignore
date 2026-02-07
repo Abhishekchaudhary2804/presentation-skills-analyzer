@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+models/*.task
+session.csv
+session_report.pdf
+session.json
