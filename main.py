@@ -6,7 +6,13 @@ from hands import gesture_score
 from scoring import confidence_score, generate_tips
 from pdf_report import generate_pdf
 
-cap = cv2.VideoCapture(0)
+VIDEO_PATH = None   # "presentation.mp4" for recorded video
+
+if VIDEO_PATH:
+    cap = cv2.VideoCapture(VIDEO_PATH)
+else:
+    cap = cv2.VideoCapture(0)
+
 
 total = 0
 eye = 0
