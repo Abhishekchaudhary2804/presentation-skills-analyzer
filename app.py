@@ -1,7 +1,7 @@
 import streamlit as st
 import cv2
 import pandas as pd
-from audio import AudioAnalyzer
+
 import tempfile
 from face import eye_contact
 from pose import posture_score
@@ -70,11 +70,11 @@ session=[]
 total=0
 eye=0
 
-audio = AudioAnalyzer()
+
 
 if source is not None:
 
-    audio.start()
+    
     cap=cv2.VideoCapture(source)
 
     while cap.isOpened():
@@ -92,7 +92,7 @@ if source is not None:
         eye_score=int((eye/(total+1))*100)
         posture=posture_score(rgb)
         gesture=gesture_score(rgb)
-        voice=audio.speaking_pace_score()
+        voice =50
 
         conf=confidence_score(eye_score,posture,gesture,voice)
 
@@ -111,7 +111,7 @@ if source is not None:
             chart_box.line_chart(df)
 
     cap.release()
-    audio.stop()
+    
 
 # ================= AFTER SESSION =================
 
@@ -146,7 +146,7 @@ if len(session)>10:
     
     pdf_path = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf").name
     generate_pdf(scores,tips,pdf_path)
-    with open("session_report.pdf","rb") as f:
+    with open(pdf_path,"rb") as f:
         pdf=f.read()
 
     d1,d2=st.columns(2)
