@@ -2,11 +2,12 @@ from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 
-def generate_pdf(scores, tips):
+
+def generate_pdf(scores, tips, output_path="session_report.pdf"):
 
     styles = getSampleStyleSheet()
 
-    doc = SimpleDocTemplate("session_report.pdf", pagesize=A4)
+    doc = SimpleDocTemplate(output_path, pagesize=A4)
 
     content = []
 
@@ -22,4 +23,6 @@ def generate_pdf(scores, tips):
 
     doc.build(content)
 
-    print("PDF Generated: session_report.pdf")
+    print(f"PDF Generated: {output_path}")
+
+    return output_path

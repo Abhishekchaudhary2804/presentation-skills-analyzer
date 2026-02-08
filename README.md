@@ -143,6 +143,21 @@ Web dashboard
 
 Historical session comparison
 
+
+📈 Evaluation Notes
+
+Eye contact estimated using iris center approximation.
+
+Posture calculated via shoulder alignment and head forward distance.
+
+Hand gestures measured using wrist movement across frames.
+
+Scores are rule-based and not ML-trained.
+
+Lighting and camera angle affect accuracy.
+
+Designed for single-person frontal presentation.
+
 👤 Author
 
 Abhishek Chaudhary
